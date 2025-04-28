@@ -119,6 +119,30 @@
       "image_url": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/airpods-pro-2-hero-select-202409_FV1_FMT_WHH?wid=752&hei=636&fmt=jpeg&qlt=90&.v=1725492498882",
       "rating": 4.5,
       "reviews_count": 40
+    },
+    {
+      "id": "7f46",
+      "name": "new shoes",
+      "brand": "puma",
+      "price": 13300,
+      "stock": 11,
+      "rating": 3,
+      "reviews_count": 12,
+      "category": "Giyim",
+      "image_url": "https://m.media-amazon.com/images/I/41t5cmi+2uL._SR290,290_.jpg",
+      "description": "Ürün Bilgileri\r\nPaket Boyutları ‏ : ‎ 30.5 x 20.5 x 12.5 cm; 500 gram\r\nSatışa Sunulduğu İlk Tarih ‏ : ‎ 12 Mart 2025\r\nÜretici ‏ : ‎ Camper\r\nASIN ‏ : ‎ B005A8A9TO\r\nÜrün Model Numarası ‏ : ‎ K201586\r\nKategori ‏ : ‎ Kadın\r\nEn Çok Satanlar Sıralaması: Şu kategoride 1.916. sırada: Moda (Moda Şu kategorideki En Popüler 100 Ürünü göster: )\r\nŞu kategoride 85. sırada: Kadın Sneaker\r\nMüşteri Yorumları: 3,0 5 yıldız üzerinden 3,0    1 değerlendirme\r\n"
+    },
+    {
+      "id": "ea54",
+      "name": "JACK & JONES JCOCHAIN REGGIE STRIPE RESORT SHIRT SS Gömlek Erkek",
+      "brand": "Jack & Jones",
+      "price": 81425,
+      "stock": 10,
+      "rating": 4,
+      "reviews_count": 12,
+      "category": "Giyim",
+      "image_url": "https://m.media-amazon.com/images/I/51gtQ3kCTGL._AC_SY550_.jpg",
+      "description": "Jack & Jones Erkek JCOCHAIN REGGIE STRIPE RESORT SHIRT SS White L, 100% Viskoz, White, L."
     }
   ],
   "users": [

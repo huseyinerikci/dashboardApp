@@ -29,6 +29,7 @@ const Home = () => {
       value: 1970,
     },
   ];
+
   return (
     <div className="page">
       <h1 className="title">Admin Paneli</h1>

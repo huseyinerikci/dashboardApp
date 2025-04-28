@@ -6,7 +6,7 @@ import avatar from "@/assets/images/user_image.webp";
 
 const Header = () => {
   return (
-    <div className="border-b border-zinc-300 p-5 md:px-8 bg-white text-black flex justify-between">
+    <div className="border-b border-zinc-300 px-5 py-2 md:px-8 bg-white text-black flex justify-between">
       <Input />
 
       <div className="flex items-center gap-5">

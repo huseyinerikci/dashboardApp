@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧭 Admin Dashboard Project
 
-## Getting Started
+This project is a fully responsive **Admin Panel Dashboard** application developed using **Next.js**, **Tailwind CSS**, **TypeScript**, **Chart.js**, **React Icons**, and **React Toastify**. Next.js's dynamic routing, API data retrieval, and component structure have been implemented in detail throughout the project.
 
-First, run the development server:
+## Preview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+A preview of my admin dashboard project is in the gif below.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![dashboardApp](https://github.com/user-attachments/assets/674148ef-3059-4019-a3a8-632eb5fb5325)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 Features
 
-## Learn More
+### 🏠 Dashboard Homepage
+- Metrics such as Total **User Count**, **Order Count**, **Total Sales**, and **Product Count** are displayed dynamically.
+- **Sales Chart**: A Line Chart created with Chart.js.
+- **Category Chart**: A Donut Chart created with Chart.js.
 
-To learn more about Next.js, take a look at the following resources:
+### 📦 Product Management
+- Accessed from the **Products** menu in the sidebar.
+- Data is retrieved from the `db.json` file in the local with `json-server` and `fetch`.
+- Products:
+- Listing
+- Adding
+- Updating
+- Can be subject to deletion operations.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 👤 User Management
+- Users are shown in a table format in the **Users** menu.
+- Information: Name, Surname, E-Mail, Country, City, Number of Orders, etc.
+- User deletion can be done.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🧾 Order Management
+- Orders are displayed in a table in the **Orders** menu.
+- Contains information such as Order Status, Date, Number of Products, and Total Price.
 
-## Deploy on Vercel
+## 🛠️ Technologies Used
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Next.js** – Server-side rendering and fast routing
+- **Tailwind CSS** – Utility-first CSS framework
+- **TypeScript** – Strong type support
+- **Chart.js** – Dynamic charts
+- **json-server** – Local database simulation
+- **React Icons** – UI icons
+- **React Toastify** – Notification system
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📱 Responsive Design
+
+All pages are designed responsively to be mobile compatible.
+
+## 🎯 Project Purpose
+
+The purpose of this project:
+- To learn the basic building blocks of Next.js
+- To develop a comprehensive dashboard application suitable for real-world scenarios

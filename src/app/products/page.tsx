@@ -49,7 +49,7 @@ const Products = async () => {
               <div>
                 <div className="flex justify-between items-center">
                   <span className="text-lg font-bold">
-                    $ {product.price.toFixed(2)}
+                    $ {product.price.toLocaleString()}
                   </span>
                   <span className="text-sm bg-blue-100 text-blue-800 px-2 py-1 rounded">
                     Stok: {product.stock}

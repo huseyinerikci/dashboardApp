@@ -3,8 +3,8 @@ import { categories, inputs } from "@/utils/constants";
 import Link from "next/link";
 import Field from "../../../components/form/Field";
 import { Product } from "@/types";
-import { createProduct } from "@/utils/service";
-import { redirect } from "next/navigation";
+import { createProduct, getProduct, updateProduct } from "@/utils/service";
+import { notFound, redirect } from "next/navigation";
 import { isRedirectError } from "next/dist/client/components/redirect-error";
 
 const handleSubmit = async (formData: FormData) => {
@@ -21,6 +21,9 @@ const handleSubmit = async (formData: FormData) => {
   }
 /sonra createProduct(productData) çağır
 */
+
+  // id'yi string olarak alıyoruz ve tip kontrolü yapıyoruz
+  const id = typeof rawData.id === "string" ? rawData.id : undefined;
   const formDataObject = {
     ...rawData,
     price: Number(rawData.price),
@@ -30,7 +33,12 @@ const handleSubmit = async (formData: FormData) => {
   } as unknown as Omit<Product, "id">;
 
   try {
-    await createProduct(formDataObject);
+    if (id) {
+      await updateProduct(id, formDataObject);
+    } else {
+      await createProduct(formDataObject);
+    }
+
     redirect("/products");
   } catch (error) {
     if (isRedirectError(error)) {
@@ -41,9 +49,12 @@ const handleSubmit = async (formData: FormData) => {
   }
 };
 
-const ProductForm = () => {
+const ProductForm = ({ product }: { product: Product | null }) => {
   return (
     <form action={handleSubmit} className="space-y-6">
+      {/* !***  düzenleme modunda handle submit içerisinde id'yi aktarmak için inputu gizliyoruz */}
+      {product && <input type="hidden" name="id" value={product?.id} />}
+
       <div className="grid md:grid-cols-2 gap-6">
         {/* sol sütun */}
         <div className="space-y-6">
@@ -55,6 +66,7 @@ const ProductForm = () => {
                 name={input.name}
                 className="input"
                 required
+                defaultValue={product?.[input.name as keyof Product]}
               />
             </Field>
           ))}
@@ -64,6 +76,7 @@ const ProductForm = () => {
               id="category"
               className="input py-3"
               required
+              defaultValue={product?.category}
             >
               <option value="">Kategori Seçiniz</option>
               {categories.map((i, key) => (
@@ -84,6 +97,7 @@ const ProductForm = () => {
               id="image_url"
               className="input"
               required
+              defaultValue={product?.image_url}
             />
           </Field>
           <ImagePreview imageInputId="image_url" />
@@ -95,6 +109,7 @@ const ProductForm = () => {
               className="input sm:text-sm md:min-h-[220px]"
               rows={5}
               required
+              defaultValue={product?.description}
             ></textarea>
           </Field>
         </div>
@@ -102,7 +117,7 @@ const ProductForm = () => {
 
       <div className="flex justify-end pt-4">
         <button className="bg-blue-500 px-6 py-2 rounded-md text-white  hover:bg-blue-600 transition-colors  disabled:bg-blue-300 disabled:cursor-not-allowed cursor-pointer">
-          Gönder
+          {product ? "Güncelle" : "Gönder"}
         </button>
       </div>
     </form>
@@ -114,10 +129,23 @@ type Props = {
 };
 const FormPage = async ({ params }: Props) => {
   const { slug } = await params;
+  let product: Product | null = null;
+
+  if (slug[0] === "edit" && slug[1]) {
+    try {
+      product = await getProduct(slug[1]);
+      if (!product) notFound();
+    } catch (error) {
+      notFound();
+    }
+  }
+
+  const pageTitle = product ? "Ürünü Düzenle" : "Yeni ürün oluştur";
+
   return (
     <div className="page container mx-auto p-4 md:p-6">
       <div className="mb-6 flex items-center justify-between">
-        <h1 className="title">Yeni ürün oluştur</h1>
+        <h1 className="title">{pageTitle}</h1>
 
         <Link
           href={"/products"}
@@ -128,7 +156,7 @@ const FormPage = async ({ params }: Props) => {
       </div>
 
       <div className="bg-white rounded-lg shadow-md p-6">
-        <ProductForm />
+        <ProductForm product={product} />
       </div>
     </div>
   );
